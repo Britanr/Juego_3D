@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monster Arena — Caza nocturna</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">✦</div>
+        <div><p class="eyebrow">ARCADE / SUPERVIVENCIA</p><h1>MONSTER <span>ARENA</span></h1></div>
+      </div>
+      <div class="top-actions">
+        <div class="status-pill"><span class="status-dot"></span> SISTEMA ACTIVO</div>
+        <button id="pauseBtn" class="icon-btn" aria-label="Pausar">Ⅱ</button>
+      </div>
+    </header>
+
+    <section class="stats" aria-label="Estadísticas">
+      <div class="stat-card"><span class="stat-icon gold">★</span><div><small>PUNTOS</small><strong id="score">000000</strong></div></div>
+      <div class="stat-card"><span class="stat-icon cyan">⌁</span><div><small>DISPAROS</small><strong id="shots">00</strong></div></div>
+      <div class="stat-card"><span class="stat-icon pink">◎</span><div><small>ACIERTOS</small><strong id="hits">00</strong></div></div>
+      <div class="stat-card health-card"><span class="stat-icon pink">♥</span><div class="health-info"><small>ENERGÍA</small><div class="health-track"><div id="playerHealthBar"></div></div><strong id="playerHealthText">100 / 100</strong></div></div>
+      <div class="level-card"><small>NIVEL</small><strong id="level">01</strong><div class="level-track"><div id="levelProgress"></div></div></div>
+    </section>
+
+    <section class="arena" id="arena" aria-label="Zona de juego">
+      <div class="moon"></div><div class="mist mist-one"></div><div class="mist mist-two"></div>
+      <div class="ruin ruin-left"><i></i><b></b></div><div class="ruin ruin-right"><i></i><b></b></div>
+      <div class="arch"><div class="arch-inner"></div><span>✧ ᚷ ✧</span></div>
+      <div class="ground"></div>
+      <div class="arena-label"><span class="live-dot"></span> ZONA DE CONTENCIÓN <span id="enemyCount">1 ENEMIGO</span></div>
+      <div class="objective"><span class="objective-icon">☠</span><div><b>OBJETIVO</b><p id="objectiveText">Elimina a todos los monstruos.</p></div></div>
+      <div id="enemyLayer" class="enemy-layer"></div>
+      <div class="crosshair" id="crosshair"><span></span></div>
+      <div class="hit-flash" id="hitFlash"></div>
+      <div class="wave-banner" id="waveBanner"><span>OLEADA COMPLETADA</span><strong>PREPÁRATE</strong></div>
+      <div class="game-over" id="gameOver">
+        <div class="over-panel"><p class="eyebrow">FIN DE LA PARTIDA</p><h2 id="overTitle">TE HAN ALCANZADO</h2><p id="finalScore">Puntuación: 0</p><button id="restartOver" class="primary-btn">↻ VOLVER A JUGAR</button></div>
+      </div>
+      <div class="arena-bottom"><span>SECTOR 07 <b>•</b> RUINAS DE LA LUNA</span><span id="accuracy">PRECISIÓN 0%</span></div>
+    </section>
+
+    <footer class="bottom-panel">
+      <div class="controls-guide">
+        <div class="guide-item"><span class="mouse-icon">⌖</span><div><b>APUNTAR</b><small>Mueve el ratón</small></div></div>
+        <div class="guide-item"><span class="keycap">LMB</span><div><b>DISPARAR</b><small>Clic izquierdo</small></div></div>
+        <div class="guide-item"><span class="keycap">W A S D</span><div><b>ESQUIVAR</b><small>Mueve la mira</small></div></div>
+        <div class="guide-item"><span class="keycap">ESC</span><div><b>PAUSAR</b><small>Detener partida</small></div></div>
+      </div>
+      <div class="footer-actions">
+        <button id="soundBtn" class="sound-btn"><span id="soundIcon">♫</span><span>SONIDO</span><i id="soundStatus">ON</i></button>
+        <div class="tip" id="tipText">✦ Apunta rápido: ¡los monstruos esquivan!</div>
+        <button id="restartBtn" class="restart-btn">↻ <span>REINICIAR</span></button>
+      </div>
+    </footer>
+    <p class="credit">MONSTER ARENA <span>—</span> SOBREVIVE A LA OLEADA</p>
+  </main>
+
+  <audio id="shootAudio" src="Objeto/disparo.mp3" preload="auto"></audio>
+  <audio id="monsterAudio" src="Objeto/monstruo.mp3" preload="auto"></audio>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
